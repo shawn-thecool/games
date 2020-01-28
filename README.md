@@ -1,2 +1,1 @@
-# game-react
-game-react
+# games
