@@ -1,5 +1,5 @@
 {
-  "name": "sages-of-white-tower",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.4.4",
-    "vue": "^2.6.10"
+    "socket.io-client": "^2.3.0",
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.5",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -29,7 +32,9 @@
       "plugin:vue/essential",
       "eslint:recommended"
     ],
-    "rules": {},
+    "rules": {
+      "no-console":  1
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     }
@@ -37,5 +42,16 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "prettier": {
+    "printWidth": 100,
+    "semi": false,
+    "tabWidth": 2,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "tabs": true,
+    "[javascript]": {
+      "editor.formatOnSave": true
+    }
+  }
 }
