@@ -1,16 +1,22 @@
 import Vue from 'vue'
 import io from 'socket.io-client'
-import { SOCKET_EVENT } from '@/constants'
-console.log('**', SOCKET_EVENT)
 
-const socket = io('http://localhost:9000')
+const socket = io.connect('http://172.25.101.218:9000')
+
 const plugin = {
   install(vue) {
     vue.mixin({})
-    vue.prototype.$_sendTestData = $payload => {
-      socket.emit(SOCKET_EVENT.PUSH_DATA_TEST, {
-        msg: $payload.msg,
-        name: $payload.name
+    vue.prototype.$_join = () => {
+      socket.on('join', ({ msg }) => console.log('msg-from-server : ', msg))
+    }
+    vue.prototype.$_test = data => {
+      console.log('client-test', data)
+      socket.emit('test', data)
+    }
+    vue.prototype.$_battle = () => {
+      console.log('dd')
+      socket.on('battle', data => {
+        console.log('client-battle', data)
       })
     }
     vue.prototype.$socket = socket
